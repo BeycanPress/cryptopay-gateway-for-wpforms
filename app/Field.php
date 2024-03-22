@@ -253,18 +253,23 @@ class Field extends \WPForms_Field
         $isElementor = false;
         $isDivi      = false;
 
-        if (!empty($_POST['action'])) {
-            if (!empty($_GET['et_fb']) && 'wpforms_divi_preview' === $_POST['action']) {
+        $etFb = isset($_GET['et_fb']) ? sanitize_text_field($_GET['et_fb']) : '';
+        $getAction = isset($_GET['action']) ? sanitize_text_field($_GET['action']) : '';
+        $postAction = isset($_POST['action']) ? sanitize_text_field($_POST['action']) : '';
+        $reqContext = isset($_REQUEST['context']) ? sanitize_text_field($_REQUEST['context']) : '';
+
+        if (!empty($postAction)) {
+            if (!empty($etFb) && 'wpforms_divi_preview' === $postAction) {
                 $isDivi = true;
             }
 
-            if ('elementor_ajax' === $_POST['action'] || 'elementor' === $_GET['action']) {
+            if ('elementor_ajax' === $postAction || 'elementor' === $getAction) {
                 $isElementor = true;
             }
         }
 
-        if (!empty($_REQUEST['context'])) {
-            if (defined('REST_REQUEST') && REST_REQUEST && 'edit' === $_REQUEST['context']) {
+        if (!empty($reqContext)) {
+            if (defined('REST_REQUEST') && REST_REQUEST && 'edit' === $reqContext) {
                 $isGutenberg = true;
             }
         }
@@ -311,11 +316,11 @@ class Field extends \WPForms_Field
             'label' => $this->name
         ]);
 
-        echo str_replace(
+        echo esc_html(str_replace(
             '{name}',
             $this->name,
             esc_html__('{name} does not have a preview and also removes the submit button because it starts the submit process after the payment is made. You can see what {name} looks like on the page where you add the form.', 'wpforms-cryptopay') // phpcs:ignore
-        );
+        ));
     }
 
     /**
@@ -417,6 +422,6 @@ class Field extends \WPForms_Field
             ]
         );
 
-        echo $html;
+        Helpers::run('ksesEcho', $html);
     }
 }

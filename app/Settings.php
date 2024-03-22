@@ -50,7 +50,7 @@ class Settings
      */
     private function getHeadingContent(string $title): string
     {
-        return '<h4>' . $title . '</h4>' .
+        return '<h4>' . esc_html($title) . '</h4>' .
             '<p>' .
             str_replace(
                 '{title}',

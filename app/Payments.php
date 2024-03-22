@@ -118,12 +118,12 @@ class Payments
      */
     public function builderContent(): void
     {
-        echo '<div id="wpforms-panel-content-section-payment-' . $this->slug . '">';
+        echo '<div id="wpforms-panel-content-section-payment-' . esc_attr($this->slug) . '">';
 
         ?>
         <div class="wpforms-panel-content-section-payment">
             <h2 class="wpforms-panel-content-section-payment-subtitle">
-                <?php echo $this->name; ?>
+                <?php echo esc_html($this->name); ?>
             </h2>
             <?php
                 wpforms_panel_field(
@@ -139,7 +139,7 @@ class Payments
                         'parent'  => 'payments',
                         'default' => '0',
                         'tooltip' => esc_html__('Allow your customers to cryptocurrency payments via the form.', 'wpforms-cryptopay'),
-                        'class'   => 'wpforms-panel-content-section-payment-toggle wpforms-panel-content-section-payment-toggle-' . $this->slug,
+                        'class'   => 'wpforms-panel-content-section-payment-toggle wpforms-panel-content-section-payment-toggle-' . esc_attr($this->slug),
                     ]
                 );
             ?>
