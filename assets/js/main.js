@@ -50,7 +50,7 @@
                 }
                 $(".wpforms-error.cp-error").remove()
             } else if ($(".wpforms-error.cp-error").length === 0) {
-                $("#cryptopay, #cryptopay-lite").before('<div class="wpforms-error wpforms-error-generic cp-error">' + amountMustBeGreaterThanZero + '</div>')
+                $("#" + type).before('<div class="wpforms-error wpforms-error-generic cp-error">' + amountMustBeGreaterThanZero + '</div>')
             }
         });
     });

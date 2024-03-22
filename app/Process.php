@@ -208,8 +208,7 @@ class Process
      */
     public function hashCryptoPayField(array $forms, bool $multiple = false): bool
     {
-        return false !== wpforms_has_field_type('cryptopay', $forms, $multiple)
-            || false !== wpforms_has_field_type('cryptopay-lite', $forms, $multiple);
+        return false !== wpforms_has_field_type($this->type, $forms, $multiple);
     }
 
     /**
