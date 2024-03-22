@@ -43,6 +43,13 @@ final class CryptoPay implements IntegrationInterface
         );
 
         add_filter(
+            'wpforms_admin_payments_views_single_gateway_dashboard_link',
+            [$this, 'createSettingsLink'],
+            10,
+            2
+        );
+
+        add_filter(
             'wpforms_helpers_templates_include_html_args',
             [$this, 'hideActionLinks'],
             10,
@@ -88,8 +95,26 @@ final class CryptoPay implements IntegrationInterface
         }
 
         return sprintf(
-            admin_url('admin.php?page=cryptopay_lite_wpforms_transactions&s=%s'),
+            admin_url('admin.php?page=%s_wpforms_transactions&s=%s'),
+            $payment->gateway,
             $payment->transaction_id // phpcs:ignore
+        );
+    }
+
+    /**
+     * @param string $link
+     * @param object $payment
+     * @return string
+     */
+    public function createSettingsLink(string $link, object $payment): string
+    {
+        if (!$this->isOurGateway($payment->gateway)) {
+            return $link;
+        }
+
+        return sprintf(
+            admin_url('admin.php?page=%s_settings'),
+            $payment->gateway
         );
     }
 
