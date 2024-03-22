@@ -34,6 +34,7 @@ define('WPFORMS_CRYPTOPAY_KEY', basename(__DIR__));
 define('WPFORMS_CRYPTOPAY_URL', plugin_dir_url(__FILE__));
 define('WPFORMS_CRYPTOPAY_DIR', plugin_dir_path(__FILE__));
 define('WPFORMS_CRYPTOPAY_SLUG', plugin_basename(__FILE__));
+define('WPFORMS_CRYPTOPAY_SVG_ICON', file_get_contents(WPFORMS_CRYPTOPAY_DIR . 'assets/images/icon.svg'));
 
 use BeycanPress\CryptoPay\Integrator\Helpers;
 
@@ -42,22 +43,29 @@ Helpers::registerLiteModel(BeycanPress\CryptoPay\WPForms\Models\TransactionsLite
 
 load_plugin_textdomain('wpforms-cryptopay', false, basename(__DIR__) . '/languages');
 
-if (!defined('WPFORMS_VERSION')) {
-    add_action('admin_notices', function (): void {
-        ?>
-            <div class="notice notice-error">
-                <p><?php echo sprintf(esc_html__('WPForms - CryptoPay Gateway: This plugin requires WPForms to work. You can download WPForms by %s.', 'wpforms-cryptopay'), '<a href="https://wordpress.org/plugins/wpforms-lite/" target="_blank">' . esc_html__('clicking here', 'wpforms-cryptopay') . '</a>'); ?></p>
-            </div>
-        <?php
-    });
-} elseif (Helpers::bothExists()) {
-    new BeycanPress\CryptoPay\WPForms\Loader();
-} else {
-    add_action('admin_notices', function (): void {
-        ?>
-            <div class="notice notice-error">
-                <p><?php echo sprintf(esc_html__('WPForms - CryptoPay Gateway: This plugin is an extra feature plugin so it cannot do anything on its own. It needs CryptoPay to work. You can buy CryptoPay by %s.', 'wpforms-cryptopay'), '<a href="https://beycanpress.com/product/cryptopay-all-in-one-cryptocurrency-payments-for-wordpress/?utm_source=wp_org_addons&utm_medium=wpforms" target="_blank">' . esc_html__('clicking here', 'wpforms-cryptopay') . '</a>'); ?></p>
-            </div>
-        <?php
-    });
-}
+add_action('plugins_loaded', function (): void {
+    if (!defined('WPFORMS_VERSION')) {
+        add_action('admin_notices', function (): void {
+            ?>
+                <div class="notice notice-error">
+                    <p><?php echo sprintf(esc_html__('WPForms - CryptoPay Gateway: This plugin requires WPForms to work. You can download WPForms by %s.', 'wpforms-cryptopay'), '<a href="https://wordpress.org/plugins/wpforms-lite/" target="_blank">' . esc_html__('clicking here', 'wpforms-cryptopay') . '</a>'); ?></p>
+                </div>
+            <?php
+        });
+    } elseif (Helpers::bothExists()) {
+        new BeycanPress\CryptoPay\WPForms\Loader();
+        add_filter('wpforms_integrations_available', function (array $integrations): array {
+            return array_merge($integrations, [
+                'CryptoPay',
+            ]);
+        });
+    } else {
+        add_action('admin_notices', function (): void {
+            ?>
+                <div class="notice notice-error">
+                    <p><?php echo sprintf(esc_html__('WPForms - CryptoPay Gateway: This plugin is an extra feature plugin so it cannot do anything on its own. It needs CryptoPay to work. You can buy CryptoPay by %s.', 'wpforms-cryptopay'), '<a href="https://beycanpress.com/product/cryptopay-all-in-one-cryptocurrency-payments-for-wordpress/?utm_source=wp_org_addons&utm_medium=wpforms" target="_blank">' . esc_html__('clicking here', 'wpforms-cryptopay') . '</a>'); ?></p>
+                </div>
+            <?php
+        });
+    }
+});

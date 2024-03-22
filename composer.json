@@ -6,7 +6,8 @@
     },
     "autoload": {
         "psr-4": {
-            "BeycanPress\\CryptoPay\\WPForms\\": "app/"
+            "BeycanPress\\CryptoPay\\WPForms\\": "app/",
+            "WPForms\\Integrations\\": "wpforms/"
         }
     },
     "require": {
