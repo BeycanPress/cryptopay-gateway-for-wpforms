@@ -11,6 +11,8 @@ namespace BeycanPress\CryptoPay\WPForms;
 // phpcs:disable SlevomatCodingStandard.TypeHints.PropertyTypeHint
 // phpcs:disable SlevomatCodingStandard.TypeHints.ParameterTypeHint
 
+use BeycanPress\CryptoPay\Integrator\Helpers;
+
 class Payments
 {
     /**
@@ -154,7 +156,7 @@ class Payments
      */
     public function builderSidebar(): void
     {
-        echo wpforms_render(
+        Helpers::run('ksesEcho', wpforms_render(
             'builder/payment/sidebar',
             [
                 'configured'  => 'configured',
@@ -164,7 +166,7 @@ class Payments
                 'recommended' => $this->recommended,
             ],
             true
-        );
+        ));
     }
 
     /**
