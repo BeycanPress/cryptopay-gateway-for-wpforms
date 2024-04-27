@@ -27,6 +27,7 @@ class Loader
                     }
                     return Helpers::run('view', 'components/link', [
                         'url' => sprintf(admin_url('admin.php?page=wpforms-payments&view=payment&payment_id=%d'), $tx->orderId), // @phpcs:ignore
+                        /* translators: %d: transaction order id */
                         'text' => sprintf(esc_html__('View payment #%d', 'wpforms-cryptopay'), $tx->orderId)
                     ]);
                 }

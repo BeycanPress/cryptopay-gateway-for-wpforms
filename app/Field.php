@@ -253,6 +253,7 @@ class Field extends \WPForms_Field
         $isElementor = false;
         $isDivi      = false;
 
+        // Nonce process in WPForms side
         $etFb = isset($_GET['et_fb']) ? sanitize_text_field($_GET['et_fb']) : '';
         $getAction = isset($_GET['action']) ? sanitize_text_field($_GET['action']) : '';
         $postAction = isset($_POST['action']) ? sanitize_text_field($_POST['action']) : '';

@@ -68,6 +68,7 @@ class Payments
      */
     private function getFormData(): array
     {
+        // Nonce process in WPForms side
         $formId = isset($_GET['form_id']) ? absint($_GET['form_id']) : 0;
 
         if (!$formId) {
@@ -134,6 +135,7 @@ class Payments
                     'enable',
                     $this->form_data,
                     sprintf(
+                        /* translators: %s - payment gateway name */
                         esc_html__('Enable %s', 'wpforms-lite'),
                         $this->name
                     ),

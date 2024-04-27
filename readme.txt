@@ -9,11 +9,11 @@ Version: 1.0.0
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
-Cryptocurrency Payment Gateway Plugin for WPForms, Cryptocurrency payments for WordPress, Bitcoin payments, Crypto payments, USDT, BTC, ETH, SOL
+Cryptocurrency Payment Gateway for WPForms, Cryptocurrency payments for WordPress, Bitcoin payments, Ethereum, Crypto payments, USDT, BTC, ETH, SOL
 
 == Description ==
 
-### Cryptocurrency Payment Gateway Plugin for WPForms by CryptoPay
+### Cryptocurrency Payment Gateway for WPForms by CryptoPay
 
 First of all, we would like to point out that this plugin is not a standalone plugin. This plugin is a **<a href="https://beycanpress.com/cryptopay/?utm_source=wporg_readme&utm_medium=cryptopay_wpforms">cryptocurrency payment gateway for WPForms</a>**. In other words, users who want to sell courses with cryptocurrency payments can use WordPress and WPForms. However, this plugin is a plugin for CryptoPay and a cryptocurrency payment gateway for WPForms. So it's actually CryptoPay, which is the main plugin that handles cryptocurrency payments for WordPress. Therefore, users must have both plugins.
 

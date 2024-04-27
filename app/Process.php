@@ -84,6 +84,7 @@ class Process
     public function paymentCheckProcess(array $errors, array $formData): array
     {
         if ($this->hashCryptoPayField($formData)) {
+            // Nonce process in WPForms side
             $transactionHash = isset($_POST['wpforms']['transaction-hash'])
                 ? sanitize_text_field($_POST['wpforms']['transaction-hash'])
                 : '';
