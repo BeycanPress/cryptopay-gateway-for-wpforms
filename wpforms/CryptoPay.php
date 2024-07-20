@@ -11,8 +11,8 @@ namespace WPForms\Integrations;
 use BeycanPress\CryptoPay\WPForms\Field;
 use BeycanPress\CryptoPay\WPForms\Process;
 use BeycanPress\CryptoPay\WPForms\Payments;
+use BeycanPress\CryptoPay\WPForms\Settings;
 use BeycanPress\CryptoPay\Integrator\Helpers;
-use BeycanPress\CryptoPay\WPForms\Fields\Settings;
 
 final class CryptoPay implements IntegrationInterface
 {

@@ -21,7 +21,7 @@
         })
 
         const transactionInput = (transaction) => {
-            return `<input type="hidden" name="wpforms[transaction-hash]" value="${transaction.hash}" />`
+            return `<input type="hidden" name="wpforms[transaction-hash]" value="${transaction.id}" />`
         }
 
         app.events.add('confirmationCompleted', async ({transaction}) => {

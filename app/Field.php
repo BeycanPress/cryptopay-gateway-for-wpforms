@@ -395,8 +395,9 @@ class Field extends \WPForms_Field
             }
         }
 
-        Hook::addFilter('theme', function () use ($theme) {
-            return $theme;
+        Hook::addFilter('theme', function (array $themeOptions) use ($theme) {
+            $themeOptions['mode'] = $theme ?? 'light';
+            return $themeOptions;
         });
 
         if (Helpers::exists()) {

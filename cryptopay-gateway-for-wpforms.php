@@ -19,9 +19,9 @@ defined('ABSPATH') || exit;
  * License:     GPLv3
  * License URI: https://www.gnu.org/licenses/gpl-3.0.html
  * Text Domain: wpforms-cryptopay
- * Tags: Cryptopay, Cryptocurrency, WooCommerce, WordPress, MetaMask, Trust, Binance, Wallet, Ethereum, Bitcoin, Binance smart chain, Payment, Plugin, Gateway, Moralis, Converter, API, coin market cap, CMC
+ * Tags: Bitcoin, Ethereum, Crypto, Payment, WPForms
  * Requires at least: 5.0
- * Tested up to: 6.5.0
+ * Tested up to: 6.6
  * Requires PHP: 8.1
 */
 
@@ -38,12 +38,22 @@ define('WPFORMS_CRYPTOPAY_SVG_ICON', file_get_contents(WPFORMS_CRYPTOPAY_DIR . '
 
 use BeycanPress\CryptoPay\Integrator\Helpers;
 
-Helpers::registerModel(BeycanPress\CryptoPay\WPForms\Models\TransactionsPro::class);
-Helpers::registerLiteModel(BeycanPress\CryptoPay\WPForms\Models\TransactionsLite::class);
+/**
+ * @return void
+ */
+function wpformsCryptoPayRegisterModels(): void
+{
+    Helpers::registerModel(BeycanPress\CryptoPay\WPForms\Models\TransactionsPro::class);
+    Helpers::registerLiteModel(BeycanPress\CryptoPay\WPForms\Models\TransactionsLite::class);
+}
+
+wpformsCryptoPayRegisterModels();
 
 load_plugin_textdomain('wpforms-cryptopay', false, basename(__DIR__) . '/languages');
 
 add_action('plugins_loaded', function (): void {
+    wpformsCryptoPayRegisterModels();
+
     if (!defined('WPFORMS_VERSION')) {
         Helpers::requirePluginMessage('WPForms', 'https://wordpress.org/plugins/wpforms-lite/');
     } elseif (Helpers::bothExists()) {
