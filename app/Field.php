@@ -400,6 +400,10 @@ class Field extends \WPForms_Field
             return $themeOptions;
         });
 
+        Hook::addFilter('edit_config_data_wpforms', function (object $config) {
+            return $config->disableReminderEmail();
+        });
+
         if (Helpers::exists()) {
             $html = (new Payment('wpforms'))->html();
         } else {

@@ -24,13 +24,12 @@
             return `<input type="hidden" name="wpforms[transaction-hash]" value="${transaction.id}" />`
         }
 
-        app.events.add('confirmationCompleted', async ({transaction}) => {
-            helpers.closePopup();
-            await helpers.sleep(100);
+        app.events.add('confirmationCompleted', async (ctx) => {
+            ctx.disablePopup = true;
             $('.overlay').remove();
             $('#' + type).remove();
             $(".wpforms-field-" + type).remove();
-            currentForm.append(transactionInput(transaction))
+            currentForm.append(transactionInput(ctx.transaction))
             helpers.successPopup(paymentCompletedMessage)
             currentForm.find('.wpforms-submit').removeClass('wpforms-hidden')
             currentForm.submit();
