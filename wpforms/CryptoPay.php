@@ -78,8 +78,8 @@ final class CryptoPay implements IntegrationInterface
     public function registerGatewayNames(array $gateways): array
     {
         return array_merge($gateways, [
-            'cryptopay' => esc_html__('CryptoPay', 'wpforms-cryptopay'),
-            'cryptopay-lite' => esc_html__('CryptoPay Lite', 'wpforms-cryptopay')
+            'cryptopay' => esc_html__('CryptoPay', 'cryptopay-gateway-for-wpforms'),
+            'cryptopay-lite' => esc_html__('CryptoPay Lite', 'cryptopay-gateway-for-wpforms')
         ]);
     }
 

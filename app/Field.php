@@ -76,7 +76,7 @@ class Field extends \WPForms_Field
         $this->order    = 90;
         $this->group    = 'payment';
         $this->icon     = 'fa fa-bitcoin';
-        $this->keywords = esc_html__('store, ecommerce, crypto, pay, payment, bitcoin', 'wpforms-cryptopay');
+        $this->keywords = 'store, ecommerce, crypto, pay, payment, bitcoin';
 
         // Define additional field properties.
         add_filter('wpforms_builder_fields_options', [$this, 'preFieldsOptions']);
@@ -165,7 +165,7 @@ class Field extends \WPForms_Field
     public function builderJsStrings($strings, $form): array
     {
         $strings['cp_payments_enabled_required'] = wp_kses(
-            str_replace('{name}', $this->name, __('<p>{name} must be enabled in the settings when using the field.</p><p>To proceed, please go to <strong>Payments » {name}</strong> and check <strong>Enable {name}</strong>.</p>', 'wpforms-cryptopay')), // phpcs:ignore
+            str_replace('{name}', $this->name, __('<p>{name} must be enabled in the settings when using the field.</p><p>To proceed, please go to <strong>Payments » {name}</strong> and check <strong>Enable {name}</strong>.</p>', 'cryptopay-gateway-for-wpforms')), // phpcs:ignore
             [
                 'p'      => [],
                 'strong' => [],
@@ -173,7 +173,7 @@ class Field extends \WPForms_Field
         );
 
         $strings['cp_total_field_not_found'] = wp_kses(
-            str_replace('{name}', $this->name, __('<p>{name} requires a Payment Total field to be added to the form.</p><p>To proceed, please add a <strong>Payment Total</strong> field to the form.</p>', 'wpforms-cryptopay')), // phpcs:ignore
+            str_replace('{name}', $this->name, __('<p>{name} requires a Payment Total field to be added to the form.</p><p>To proceed, please add a <strong>Payment Total</strong> field to the form.</p>', 'cryptopay-gateway-for-wpforms')), // phpcs:ignore
             [
                 'p'      => [],
                 'strong' => [],
@@ -254,10 +254,10 @@ class Field extends \WPForms_Field
         $isDivi      = false;
 
         // Nonce process in WPForms side
-        $etFb = isset($_GET['et_fb']) ? sanitize_text_field($_GET['et_fb']) : '';
-        $getAction = isset($_GET['action']) ? sanitize_text_field($_GET['action']) : '';
-        $postAction = isset($_POST['action']) ? sanitize_text_field($_POST['action']) : '';
-        $reqContext = isset($_REQUEST['context']) ? sanitize_text_field($_REQUEST['context']) : '';
+        $etFb = isset($_GET['et_fb']) ? sanitize_text_field(wp_unslash($_GET['et_fb'])) : '';
+        $getAction = isset($_GET['action']) ? sanitize_text_field(wp_unslash($_GET['action'])) : '';
+        $postAction = isset($_POST['action']) ? sanitize_text_field(wp_unslash($_POST['action'])) : '';
+        $reqContext = isset($_REQUEST['context']) ? sanitize_text_field(wp_unslash($_REQUEST['context'])) : '';
 
         if (!empty($postAction)) {
             if (!empty($etFb) && 'wpforms_divi_preview' === $postAction) {
@@ -295,8 +295,8 @@ class Field extends \WPForms_Field
                     'slug'    => 'theme',
                     'value'   => !empty($field['theme']) ? esc_attr($field['theme']) : 'light',
                     'options' => [
-                        'light' => esc_html__('Light', 'wpforms-cryptopay'),
-                        'dark'  => esc_html__('Dark', 'wpforms-cryptopay'),
+                        'light' => esc_html__('Light', 'cryptopay-gateway-for-wpforms'),
+                        'dark'  => esc_html__('Dark', 'cryptopay-gateway-for-wpforms'),
                     ],
                 ],
                 false
@@ -320,7 +320,7 @@ class Field extends \WPForms_Field
         echo esc_html(str_replace(
             '{name}',
             $this->name,
-            esc_html__('{name} does not have a preview and also removes the submit button because it starts the submit process after the payment is made. You can see what {name} looks like on the page where you add the form.', 'wpforms-cryptopay') // phpcs:ignore
+            esc_html__('{name} does not have a preview and also removes the submit button because it starts the submit process after the payment is made. You can see what {name} looks like on the page where you add the form.', 'cryptopay-gateway-for-wpforms') // phpcs:ignore
         ));
     }
 
@@ -349,7 +349,7 @@ class Field extends \WPForms_Field
                     '<div class="wpforms-error">%s</div>',
                     esc_html__(
                         'Payment Total field is required for CryptoPay Lite field to work properly.',
-                        'wpforms-cryptopay'
+                        'cryptopay-gateway-for-wpforms'
                     )
                 ),
                 [
@@ -372,7 +372,7 @@ class Field extends \WPForms_Field
                 echo wp_kses(
                     sprintf(
                         '<p>%s</p>',
-                        esc_html__('A payment has already been made for this form, but the form has not been sent. Therefore please only submit the form.', 'wpforms-cryptopay') // phpcs:ignore
+                        esc_html__('A payment has already been made for this form, but the form has not been sent. Therefore please only submit the form.', 'cryptopay-gateway-for-wpforms') // phpcs:ignore
                     ),
                     [
                         'p' => [],
@@ -411,7 +411,7 @@ class Field extends \WPForms_Field
         }
 
         wp_enqueue_script(
-            'wpforms-cryptopay',
+            'cryptopay-gateway-for-wpforms',
             WPFORMS_CRYPTOPAY_URL . 'assets/js/main.js',
             ['jquery', Helpers::run('getProp', 'mainJsKey')],
             WPFORMS_CRYPTOPAY_VERSION,
@@ -419,12 +419,12 @@ class Field extends \WPForms_Field
         );
 
         wp_localize_script(
-            'wpforms-cryptopay',
+            'cryptopay-gateway-for-wpforms',
             'wpforms_cryptopay',
             [
                 'type' => $this->type,
-                'amountMustBeGreaterThanZero' => esc_html__('Your order amount must be greater than 0 for the payment section to be active.', 'wpforms-cryptopay'), // phpcs:ignore,
-                'paymentCompletedMessage'     => esc_html__('Payment completed successfully.', 'wpforms-cryptopay'),
+                'amountMustBeGreaterThanZero' => esc_html__('Your order amount must be greater than 0 for the payment section to be active.', 'cryptopay-gateway-for-wpforms'), // phpcs:ignore,
+                'paymentCompletedMessage'     => esc_html__('Payment completed successfully.', 'cryptopay-gateway-for-wpforms'), // phpcs:ignore
             ]
         );
 

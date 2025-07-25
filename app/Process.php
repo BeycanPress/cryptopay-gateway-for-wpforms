@@ -31,7 +31,7 @@ class Process
     private function setTxToOurField(string $tx, array $fields): array
     {
         $index = array_search($this->type, array_column($fields, 'type', 'id'));
-        $fields[$index]['name'] = esc_html__('Transaction Hash', 'wpforms-cryptopay');
+        $fields[$index]['name'] = esc_html__('Transaction Hash', 'cryptopay-gateway-for-wpforms');
         $fields[$index]['value'] = $tx;
 
         return $fields;
@@ -86,7 +86,7 @@ class Process
         if ($this->hashCryptoPayField($formData)) {
             // Nonce process in WPForms side
             $transactionHash = isset($_POST['wpforms']['transaction-hash'])
-                ? sanitize_text_field($_POST['wpforms']['transaction-hash'])
+                ? sanitize_text_field(wp_unslash($_POST['wpforms']['transaction-hash']))
                 : '';
 
             $model = Helpers::run('getModelByAddon', 'wpforms');
@@ -99,7 +99,7 @@ class Process
                 $errors[$formData['id']] = [
                     'header' => esc_html__(
                         'Payment is not verified. Sending form has been aborted.',
-                        'wpforms-cryptopay'
+                        'cryptopay-gateway-for-wpforms'
                     )
                 ];
             }
@@ -177,7 +177,7 @@ class Process
                 'customer_name' => $userData->display_name, // @phpcs:ignore
                 'customer_email' => $userData->user_email, // @phpcs:ignore
                 'log' => [
-                    'value' => esc_html__('Payment is completed.', 'wpforms-cryptopay'),
+                    'value' => esc_html__('Payment is completed.', 'cryptopay-gateway-for-wpforms'),
                     'date' => gmdate('Y-m-d H:i:s'),
                 ]
             ]

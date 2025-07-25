@@ -2,7 +2,7 @@
 Contributors: BeycanPress
 Tags: Bitcoin, Ethereum, Crypto, Payment, WPForms
 Requires at least: 5.0
-Tested up to: 6.7.1
+Tested up to: 6.8
 Requires PHP: 8.1
 Stable Tag: 1.0.1
 Version: 1.0.1
@@ -15,20 +15,25 @@ Cryptocurrency Payment Gateway for WPForms, Cryptocurrency payments for WordPres
 
 ### Cryptocurrency Payment Gateway for WPForms by CryptoPay
 
-First of all, we would like to point out that this plugin is not a standalone plugin. This plugin is a **<a href="https://beycanpress.com/cryptopay/?utm_source=wporg_readme&utm_medium=cryptopay_wpforms">cryptocurrency payment gateway for WPForms</a>**. In other words, users who want to sell courses with cryptocurrency payments can use WordPress and WPForms. However, this plugin is a plugin for CryptoPay and a cryptocurrency payment gateway for WPForms. So it's actually CryptoPay, which is the main plugin that handles cryptocurrency payments for WordPress. Therefore, users must have both plugins.
+Have you chosen WPForms — one of the leading WordPress form builder plugins — and are now looking to enable cryptocurrency payments through your forms? You’re in the right place. CryptoPay is a dedicated crypto payment gateway plugin built specifically for WordPress. Thanks to its seamless integration with WPForms, you can effortlessly start receiving crypto payments directly via your forms.
 
 Thanks to this plugin, you can receive **<a href="https://beycanpress.com/cryptopay/?utm_source=wporg_readme&utm_medium=cryptopay_wpforms">cryptocurrency payments</a>** from many Blockchain networks, especially Bitcoin, Ethereum, Solana, and sell paid courses with cryptocurrencies on your WordPress site with the WPForms plugin.
 
-What is CryptoPay?
+== What is CryptoPay? ==
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/3vaoFL4XG10" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-Review CryptoPay Lite: **<a href="https://wordpress.org/plugins/cryptopay-wc-lite/">Cryptocurrency payment gateway for WPForms</a>**
+**<a href="https://wordpress.org/plugins/cryptopay-wc-lite/">Review CryptoPay Lite</a>**
 
-Review CryptoPay Premium: **<a href="https://beycanpress.com/cryptopay/?utm_source=wporg_readme&utm_medium=cryptopay_wpforms">Cryptocurrency payments for WooCommerce</a>**
+**<a href="https://beycanpress.com/cryptopay/?utm_source=wporg_readme&utm_medium=cryptopay_rcp">Review CryptoPay Premium</a>**
 
-Review WPForms: **<a href="https://wordpress.org/plugins/wpforms-lite/">WPForms</a>**
+**<a href="https://wordpress.org/plugins/restrict-content/">Review Restrict Content Pro</a>**
 
 See **<a href="https://cryptopay.beycanpress.net/" target="_blank">Demo</a>**
+
+== How to configuration ==
+
+You can follow to images on github to configure the plugin: <a href="https://github.com/BeycanPress/cryptopay-gateway-for-wpforms">https://github.com/BeycanPress/cryptopay-gateway-for-wpforms</a>
 
 = Privacy notices =
 

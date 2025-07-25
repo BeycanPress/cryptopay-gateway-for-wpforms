@@ -136,13 +136,13 @@ class Payments
                     $this->form_data,
                     sprintf(
                         /* translators: %s - payment gateway name */
-                        esc_html__('Enable %s', 'wpforms-lite'),
+                        esc_html__('Enable %s', 'cryptopay-gateway-for-wpforms'),
                         $this->name
                     ),
                     [
                         'parent'  => 'payments',
                         'default' => '0',
-                        'tooltip' => esc_html__('Allow your customers to cryptocurrency payments via the form.', 'wpforms-cryptopay'),
+                        'tooltip' => esc_html__('Allow your customers to cryptocurrency payments via the form.', 'cryptopay-gateway-for-wpforms'),
                         'class'   => 'wpforms-panel-content-section-payment-toggle wpforms-panel-content-section-payment-toggle-' . esc_attr($this->slug),
                     ]
                 );

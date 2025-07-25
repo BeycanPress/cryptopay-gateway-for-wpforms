@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: CryptoPay Gateway for WPForms\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-22 02:00+0000\n"
+"POT-Creation-Date: 2025-07-25 01:09+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -13,8 +13,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco https://localise.biz/\n"
-"X-Loco-Version: 2.6.7; wp-6.4.3\n"
-"X-Domain: wpforms-cryptopay"
+"X-Loco-Version: 2.8.0; wp-6.8.2; php-8.2.25\n"
+"X-Domain: cryptopay-gateway-for-wpforms"
 
 #: app/Field.php:168
 msgid ""
@@ -29,7 +29,7 @@ msgid ""
 "proceed, please add a <strong>Payment Total</strong> field to the form.</p>"
 msgstr ""
 
-#: app/Field.php:369
+#: app/Field.php:375
 msgid ""
 "A payment has already been made for this form, but the form has not been "
 "sent. Therefore please only submit the form."
@@ -39,7 +39,7 @@ msgstr ""
 msgid "Adds Cryptocurrency payment gateway (CryptoPay) for WPForms."
 msgstr ""
 
-#: app/Payments.php:141
+#: app/Payments.php:145
 msgid "Allow your customers to cryptocurrency payments via the form."
 msgstr ""
 
@@ -47,20 +47,26 @@ msgstr ""
 msgid "BeycanPress LLC"
 msgstr ""
 
-#: cryptopay-gateway-for-wpforms.php:51 cryptopay-gateway-for-wpforms.php:66
-msgid "clicking here"
-msgstr ""
-
-#: wpforms/CryptoPay.php:74
+#: wpforms/CryptoPay.php:81
 msgid "CryptoPay"
 msgstr ""
 
-#: wpforms/CryptoPay.php:75
+#. Name of the plugin
+msgid "CryptoPay Gateway for WPForms"
+msgstr ""
+
+#: wpforms/CryptoPay.php:82
 msgid "CryptoPay Lite"
 msgstr ""
 
-#: app/Field.php:293
+#: app/Field.php:299
 msgid "Dark"
+msgstr ""
+
+#. %s - payment gateway name
+#: app/Payments.php:139
+#, php-format
+msgid "Enable %s"
 msgstr ""
 
 #. Author URI of the plugin
@@ -71,69 +77,51 @@ msgstr ""
 msgid "https://beycanpress.com/cryptopay/"
 msgstr ""
 
-#: app/Field.php:292
+#: app/Field.php:298
 msgid "Light"
 msgstr ""
 
-#: app/Field.php:416
+#: app/Field.php:427
 msgid "Payment completed successfully."
 msgstr ""
 
-#: app/Process.php:179
+#: app/Process.php:180
 msgid "Payment is completed."
 msgstr ""
 
-#: app/Process.php:99
+#: app/Process.php:100
 msgid "Payment is not verified. Sending form has been aborted."
 msgstr ""
 
-#: app/Field.php:344
+#: app/Field.php:350
 msgid ""
 "Payment Total field is required for CryptoPay Lite field to work properly."
-msgstr ""
-
-#: app/Field.php:79
-msgid "store, ecommerce, crypto, pay, payment, bitcoin"
 msgstr ""
 
 #: app/Process.php:34
 msgid "Transaction Hash"
 msgstr ""
 
-#: app/Loader.php:27
+#. %d: transaction order id
+#: app/Loader.php:32
 msgid "View payment #%d"
 msgstr ""
 
-#. Name of the plugin
-msgid "CryptoPay Gateway for WPForms"
+#: app/Loader.php:27
+msgid "Waiting..."
 msgstr ""
 
-#: cryptopay-gateway-for-wpforms.php:66
-#, php-format
-msgid ""
-"CryptoPay Gateway for WPForms: This plugin is an extra feature plugin so it "
-"cannot do anything on its own. It needs CryptoPay to work. You can buy "
-"CryptoPay by %s."
-msgstr ""
-
-#: cryptopay-gateway-for-wpforms.php:51
-#, php-format
-msgid ""
-"CryptoPay Gateway for WPForms: This plugin requires WPForms to work. You can "
-"download WPForms by %s."
-msgstr ""
-
-#: app/Loader.php:20
+#: app/Loader.php:21
 msgid "WPForms Transactions"
 msgstr ""
 
-#: app/Field.php:415
+#: app/Field.php:426
 msgid ""
 "Your order amount must be greater than 0 for the payment section to be "
 "active."
 msgstr ""
 
-#: app/Field.php:317
+#: app/Field.php:323
 msgid ""
 "{name} does not have a preview and also removes the submit button because it "
 "starts the submit process after the payment is made. You can see what {name} "

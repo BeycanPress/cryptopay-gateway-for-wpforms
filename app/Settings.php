@@ -58,7 +58,7 @@ class Settings
                 esc_html__(
                     // phpcs:ignore
                     '{title} Settings are managed from payments section on form builder and {title} field settings.',
-                    'wpforms-cryptopay'
+                    'cryptopay-gateway-for-wpforms'
                 )
             ) .
             '</p>';
