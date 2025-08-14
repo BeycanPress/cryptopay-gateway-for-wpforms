@@ -11,7 +11,7 @@ defined('ABSPATH') || exit;
 
 /**
  * Plugin Name: CryptoPay Gateway for WPForms
- * Version:     1.0.1
+ * Version:     1.0.2
  * Plugin URI:  https://beycanpress.com/cryptopay/
  * Description: Adds Cryptocurrency payment gateway (CryptoPay) for WPForms.
  * Author:      BeycanPress LLC
@@ -29,7 +29,7 @@ defined('ABSPATH') || exit;
 require_once __DIR__ . '/vendor/autoload.php';
 
 define('WPFORMS_CRYPTOPAY_FILE', __FILE__);
-define('WPFORMS_CRYPTOPAY_VERSION', '1.0.1');
+define('WPFORMS_CRYPTOPAY_VERSION', '1.0.2');
 define('WPFORMS_CRYPTOPAY_KEY', basename(__DIR__));
 define('WPFORMS_CRYPTOPAY_URL', plugin_dir_url(__FILE__));
 define('WPFORMS_CRYPTOPAY_DIR', plugin_dir_path(__FILE__));

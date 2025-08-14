@@ -4,8 +4,8 @@ Tags: Bitcoin, Ethereum, Crypto, Payment, WPForms
 Requires at least: 5.0
 Tested up to: 6.8
 Requires PHP: 8.1
-Stable Tag: 1.0.1
-Version: 1.0.1
+Stable Tag: 1.0.2
+Version: 1.0.2
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -27,7 +27,7 @@ Thanks to this plugin, you can receive **<a href="https://beycanpress.com/crypto
 
 **<a href="https://beycanpress.com/cryptopay/?utm_source=wporg_readme&utm_medium=cryptopay_rcp">Review CryptoPay Premium</a>**
 
-**<a href="https://wordpress.org/plugins/restrict-content/">Review Restrict Content Pro</a>**
+**<a href="https://wordpress.org/plugins/wpforms-lite/">Review WPForms Lite</a>**
 
 See **<a href="https://cryptopay.beycanpress.net/" target="_blank">Demo</a>**
 
@@ -55,7 +55,7 @@ You can easily translate with Loco translate.
 
 == Changelog ==
 
-= 1.0.1 =
+= 1.0.2 =
 * Fixed: Text domain warning.
 
 = 1.0.0 =
